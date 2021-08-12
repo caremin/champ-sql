@@ -8,9 +8,9 @@ AS SELECT reports.doc ->> '_id'::text AS report_uuid,
     reports.doc #>> '{contact,_id}'::text[] AS chc_uuid,
     reports.doc #>> '{fields,nutrition_details_2,weight}'::text[] AS weight,
     reports.doc #>> '{fields,nutrition_details_2,know_height}'::text[] AS know_height,
+    reports.doc #>> '{fields,nutrition_details_3,height}'::text[] AS height,
     reports.doc #>> '{fields,nutrition_details_3,bmi}'::text[] AS bmi,
     reports.doc #>> '{fields,nutrition_details_3,classify_bmi}'::text[] AS classify_bmi,
-    reports.doc #>> '{fields,nutrition_details_3,classify_bmi_label}'::text[] AS classify_bmi_label,
     reports.doc #>> '{fields,nutrition_details_3,classification}'::text[] AS classification,
     reports.doc #>> '{fields,nutrition_details_5,rhu_given}'::text[] AS rhu_given
    FROM raw_reports reports
