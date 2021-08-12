@@ -11,7 +11,7 @@ AS SELECT reports.doc ->> '_id'::text AS report_uuid,
     reports.doc #>> '{fields,nutrition_details_3,height}'::text[] AS height,
     reports.doc #>> '{fields,nutrition_details_3,bmi}'::text[] AS bmi,
     reports.doc #>> '{fields,nutrition_details_3,classify_bmi}'::text[] AS classify_bmi,
-    reports.doc #>> '{fields,nutrition_details_3,classification}'::text[] AS classification,
+    reports.doc #>> '{fields,nutrition_details_3,bmi_selector}'::text[] AS classification,
     reports.doc #>> '{fields,nutrition_details_5,rhu_given}'::text[] AS rhu_given
    FROM raw_reports reports
   WHERE (reports.doc ->> 'form'::text) = 'postnatal_screening'::text
